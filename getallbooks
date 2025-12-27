@@ -1,17 +1,55 @@
-curl http://localhost:5000/books
+curl http://localhost:5000/
 
-OUTPUT:
 {
-  "1": {
-    "isbn": "1",
-    "title": "Node.js Basics",
-    "author": "John",
+  "9781593275846": {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
     "reviews": {}
   },
-  "2": {
-    "isbn": "2",
-    "title": "Express Guide",
-    "author": "Mary",
+  "9781449331818": {
+    "title": "Learning JavaScript Design Patterns",
+    "author": "Addy Osmani",
+    "reviews": {}
+  },
+  "9781449365035": {
+    "title": "Speaking JavaScript",
+    "author": "Axel Rauschmayer",
+    "reviews": {}
+  },
+  "9781491950296": {
+    "title": "Programming JavaScript Applications",
+    "author": "Eric Elliott",
+    "reviews": {}
+  },
+  "9781593277574": {
+    "title": "Eloquent JavaScript, Second Edition",
+    "author": "Marijn Haverbeke",
+    "reviews": {}
+  },
+  "9781449325862": {
+    "title": "Git Pocket Guide",
+    "author": "Richard E. Silverman",
+    "reviews": {}
+  },
+  "9781449337711": {
+    "title": "Designing Evolvable Web APIs with ASP.NET",
+    "author": "Glenn Block et al.",
+    "reviews": {}
+  },
+  "9781449364847": {
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "reviews": {}
+  },
+  "9781449337712": {
+    "title": "JavaScript: The Good Parts",
+    "author": "Douglas Crockford",
+    "reviews": {}
+  },
+  "9780132350884": {
+    "title": "Refactoring",
+    "author": "Martin Fowler",
     "reviews": {}
   }
 }
+
