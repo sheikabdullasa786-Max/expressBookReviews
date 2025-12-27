@@ -1,0 +1,6 @@
+curl -X POST http://localhost:5000/register
+
+OUTPUT:
+{
+  "message": "User registered successfully"
+}
