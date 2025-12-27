@@ -1,0 +1,6 @@
+curl -X POST http://localhost:5000/review/1 -H "Content-Type: application/json" -d '{"review":"Good book"}'
+
+OUTPUT:
+{
+  "message": "Review added"
+}
