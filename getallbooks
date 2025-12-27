@@ -1,0 +1,17 @@
+curl http://localhost:5000/books
+
+OUTPUT:
+{
+  "1": {
+    "isbn": "1",
+    "title": "Node.js Basics",
+    "author": "John",
+    "reviews": {}
+  },
+  "2": {
+    "isbn": "2",
+    "title": "Express Guide",
+    "author": "Mary",
+    "reviews": {}
+  }
+}
