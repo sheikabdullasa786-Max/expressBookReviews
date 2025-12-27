@@ -1,57 +1,52 @@
-const express = require('express');
-const router = express.Router();
+const axios = require("axios");
 
-let books = {
-  "1": { "isbn": "1", "title": "Node.js Basics", "author": "John", "reviews": {} },
-  "2": { "isbn": "2", "title": "Express Guide", "author": "Mary", "reviews": {} }
-};
+const BASE_URL = "http://localhost:5000";
 
 // Get all books
-router.get('/books', (req, res) => {
-  res.json(books);
-});
+const getAllBooks = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/`);
+    return response.data;
+  } catch (error) {
+    return { error: "Failed to retrieve all books" };
+  }
+};
 
 // Get book by ISBN
-router.get('/books/isbn/:isbn', (req, res) => {
-  res.json(books[req.params.isbn]);
-});
+const getBookByISBN = async (isbn) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/ISBN/${isbn}`);
+    return response.data;
+  } catch (error) {
+    return { error: `No book found with ISBN ${isbn}` };
+  }
+};
 
 // Get books by author
-router.get('/books/author/:author', (req, res) => {
-  const result = Object.values(books).filter(
-    book => book.author === req.params.author
-  );
-  res.json(result);
-});
+const getBooksByAuthor = async (author) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/author/${encodeURIComponent(author)}`);
+    return response.data;
+  } catch (error) {
+    return { error: `No books found for author ${author}` };
+  }
+};
 
 // Get books by title
-router.get('/books/title/:title', (req, res) => {
-  const result = Object.values(books).filter(
-    book => book.title === req.params.title
-  );
-  res.json(result);
-});
+const getBooksByTitle = async (title) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/title/${encodeURIComponent(title)}`);
+    return response.data;
+  } catch (error) {
+    return { error: `No books found with title ${title}` };
+  }
+};
 
-// Register user
-router.post('/register', (req, res) => {
-  res.json({ message: "User registered successfully" });
-});
+module.exports = {
+  getAllBooks,
+  getBookByISBN,
+  getBooksByAuthor,
+  getBooksByTitle,
+};
 
-// Login user
-router.post('/login', (req, res) => {
-  res.json({ message: "User logged in successfully" });
-});
 
-// Add review
-router.post('/review/:isbn', (req, res) => {
-  books[req.params.isbn].reviews["user"] = req.body.review;
-  res.json({ message: "Review added" });
-});
-
-// Delete review
-router.delete('/review/:isbn', (req, res) => {
-  delete books[req.params.isbn].reviews["user"];
-  res.json({ message: "Review deleted" });
-});
-
-module.exports = router;
